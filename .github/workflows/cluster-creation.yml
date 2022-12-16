@@ -1,0 +1,51 @@
+name: Cluster creation
+
+on:
+  workflow_dispatch:
+    inputs:
+      CLUSTER_NAME:
+        description: 'Name of the cluster'
+        required: true
+      PROJECT_ID: 
+        description: 'Zone to use when creating cluster'
+        required: true
+        options:
+          - ""
+          - ""
+          - ""
+      REGION: 
+        description: 'Zone to use when creating cluster'
+        required: true
+        options:
+          - "us-central1"
+          - "us-east1"
+          - "us-east2"
+      ZONE: 
+        description: 'Zone to use when creating cluster'
+        required: true
+        options:
+          - "us-central1-c"
+          - "us-central1-a"
+          - "us-east1-a"
+          - "us-east2-d"
+      ENV:
+        description: 'env to use'
+        required: true
+        options:
+          - "Dev"
+          - "Stg"
+          - "Qa"
+          - "Prd"
+jobs:
+  create-cluster:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up gcloud
+        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          service_account_key: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
+      - name: Create GKE cluster
+        run: |
+
+  
