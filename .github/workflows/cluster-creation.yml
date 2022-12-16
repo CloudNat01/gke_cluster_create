@@ -6,36 +6,41 @@ on:
       CLUSTER_NAME:
         description: 'Name of the cluster'
         required: true
+        type: string
       PROJECT_ID: 
         description: 'Zone to use when creating cluster'
         required: true
+        type: choice
         options:
-          - ""
-          - ""
-          - ""
+          - project1
+          - project2
+          - project3
       REGION: 
         description: 'Zone to use when creating cluster'
         required: true
+        type: choice
         options:
-          - "us-central1"
-          - "us-east1"
-          - "us-east2"
+          - us-central1
+          - us-east1
+          - us-east2
       ZONE: 
         description: 'Zone to use when creating cluster'
         required: true
+        type: choice
         options:
-          - "us-central1-c"
-          - "us-central1-a"
-          - "us-east1-a"
-          - "us-east2-d"
+          - us-central1-c
+          - us-central1-a
+          - us-east1-a
+          - us-east2-d
       ENV:
         description: 'env to use'
         required: true
+        type: choice
         options:
-          - "Dev"
-          - "Stg"
-          - "Qa"
-          - "Prd"
+          - Dev
+          - Stg
+          - Qa
+          - Prd
 jobs:
   create-cluster:
     runs-on: ubuntu-latest
