@@ -1,34 +1,17 @@
 #!/bin/bash
 
-# parse the command-line arguments
-while [[ $# -gt 0 ]]; do
-  case "$1" in
-    --cluster-name)
-      CLUSTER_NAME="$2"
-      shift 2
-      ;;
-    --project-id)
-      PROJECT_ID="$2"
-      shift 2
-      ;;
-    --zone)
-      ZONE="$2"
-      shift 2
-      ;;
-    --region)
-      REGION="$2"
-      shift 2
-      ;;
-    --env)
-      ENV="$2"
-      shift 2
-      ;;
-    *)
-      echo "unknown option: $1"
-      exit 1
-      ;;
-  esac
-done
+# Check if all required arguments are provided
+if [ $# -ne 5 ]; then
+  echo "Usage: create-gke-cluster.sh cluster-name project-id region zone env"
+  exit 1
+fi
+
+# Assign arguments to variables
+CLUSTER_NAME=$1
+PROJECT_ID=$2
+REGION=$3
+ZONE=$4
+ENV=$5
 
 cat <<EOF > cluster.tf 
 module "gke" {

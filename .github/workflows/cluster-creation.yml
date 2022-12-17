@@ -52,10 +52,10 @@ jobs:
           credentials_json: ${{ secrets.CREDENTIALS_JSON }}
       - name: Create GKE cluster
         run: |
-               ./create-cluster.sh --cluster-name=${{ github.event.inputs.CLUSTER_NAME }} --project-id=${{ github.event.inputs.PROJECT_ID }} \
-               --zone=${{ github.event.inputs.ZONE }} \
-               --region=${{ github.event.inputs.REGION }} 
-               --env=${{ github.event.inputs.ENV }}
+               ./create-cluster.sh ${{ github.event.inputs.CLUSTER_NAME }} ${{ github.event.inputs.PROJECT_ID }} \
+                 ${{ github.event.inputs.ZONE }} \
+                 ${{ github.event.inputs.REGION }} \
+                 ${{ github.event.inputs.ENV }}
 
 
   
