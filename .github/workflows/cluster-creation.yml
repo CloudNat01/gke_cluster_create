@@ -49,7 +49,7 @@ jobs:
       - name: Set up gcloud
         uses: google-github-actions/auth@v1
         with:
-          service_account_key: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
+          service_account_key: ${{ secrets.CREDENTIALS_JSON }}
       - name: Create GKE cluster
         run: |
                ./create-cluster.sh --cluster-name=${{ github.event.inputs.CLUSTER_NAME }} --project-id=${{ github.event.inputs.PROJECT_ID }} \
