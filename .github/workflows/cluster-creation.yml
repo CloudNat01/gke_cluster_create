@@ -47,7 +47,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set up gcloud
-        uses: GoogleCloudPlatform/github-actions/setup-gcloud@main
+        uses: google-github-actions/setup-gcloud@v1
         with:
           service_account_key: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
       - name: Create GKE cluster
