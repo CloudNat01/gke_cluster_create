@@ -12,7 +12,7 @@ on:
         required: true
         type: choice
         options:
-          - project1
+          - managed-inventory
           - project2
           - project3
       REGION: 
@@ -52,5 +52,10 @@ jobs:
           service_account_key: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
       - name: Create GKE cluster
         run: |
+               ./create-cluster.sh --cluster-name=${{ github.event.inputs.CLUSTER_NAME }} --project-id=${{ github.event.inputs.PROJECT_ID }} \
+               --zone=${{ github.event.inputs.ZONE }} \
+               --region=${{ github.event.inputs.REGION }} \
+               --env=${{ github.evnt.inputs.ENV }}
+
 
   

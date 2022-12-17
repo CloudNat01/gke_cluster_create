@@ -20,7 +20,7 @@ while [[ $# -gt 0 ]]; do
       shift 2
       ;;
     --env)
-      env="$2"
+      ENV="$2"
       shift 2
       ;;
     *)
@@ -62,7 +62,7 @@ module "gke" {
       enable_gvnic              = false
       auto_repair               = true
       auto_upgrade              = true
-      service_account           = "project-service-account@$PROJECT_ID.iam.gserviceaccount.com"
+    #   service_account           = "project-service-account@$PROJECT_ID.iam.gserviceaccount.com"
       preemptible               = false
       initial_node_count        = 5
     },
