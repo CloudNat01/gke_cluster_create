@@ -2,7 +2,7 @@
 
 # parse the command-line arguments
 while [[ $# -gt 0 ]]; do
-    case "$1" in
+  case "$1" in
     --cluster-name)
       CLUSTER_NAME="$2"
       shift 2
@@ -27,7 +27,7 @@ while [[ $# -gt 0 ]]; do
       echo "unknown option: $1"
       exit 1
       ;;
-    esac
+  esac
 done
 
 cat <<EOF > cluster.tf 
