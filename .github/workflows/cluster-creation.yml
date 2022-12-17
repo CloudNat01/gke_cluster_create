@@ -32,15 +32,15 @@ on:
           - us-central1-a
           - us-east1-a
           - us-east2-d
-      ENV:
-        description: 'env to use'
-        required: true
-        type: choice
-        options:
-          - Dev
-          - Stg
-          - Qa
-          - Prd
+      # ENV:
+      #   description: 'env to use'
+      #   required: true
+      #   type: choice
+      #   options:
+      #     - Dev
+      #     - Stg
+      #     - Qa
+      #     - Prd
 jobs:
   create-cluster:
     runs-on: ubuntu-latest
