@@ -32,15 +32,15 @@ on:
           - us-central1-a
           - us-east1-a
           - us-east2-d
-      # ENV:
-      #   description: 'env to use'
-      #   required: true
-      #   type: choice
-      #   options:
-      #     - Dev
-      #     - Stg
-      #     - Qa
-      #     - Prd
+      ENV:
+        description: 'env to use'
+        required: true
+        type: choice
+        options:
+          - Dev
+          - Stg
+          - Qa
+          - Prd
 jobs:
   create-cluster:
     runs-on: ubuntu-latest
@@ -54,8 +54,8 @@ jobs:
         run: |
                ./create-cluster.sh --cluster-name=${{ github.event.inputs.CLUSTER_NAME }} --project-id=${{ github.event.inputs.PROJECT_ID }} \
                --zone=${{ github.event.inputs.ZONE }} \
-               --region=${{ github.event.inputs.REGION }} \
-               --env=${{ github.evnt.inputs.ENV }}
+               --region=${{ github.event.inputs.REGION }} 
+               --env=${{ github.event.inputs.ENV }}
 
 
   

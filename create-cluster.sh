@@ -19,10 +19,10 @@ while [[ $# -gt 0 ]]; do
       REGION="$2"
       shift 2
       ;;
-    # --env)
-    #   ENV="$2"
-    #   shift 2
-    #   ;;
+    --env)
+      ENV="$2"
+      shift 2
+      ;;
     *)
       echo "unknown option: $1"
       exit 1
