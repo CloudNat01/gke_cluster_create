@@ -8,7 +8,7 @@ on:
         required: true
         type: string
       PROJECT_ID: 
-        description: 'Zone to use when creating cluster'
+        description: 'project-id to use'
         required: true
         type: choice
         options:
@@ -16,7 +16,7 @@ on:
           - project2
           - project3
       REGION: 
-        description: 'Zone to use when creating cluster'
+        description: 'region to use when creating cluster'
         required: true
         type: choice
         options:
